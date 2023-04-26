@@ -32,15 +32,8 @@ function AddNewView() {
     }
   };
 
-  if (error)
-    return (
-      <div>
-        <p>
-          Probably there is an existing item with that name or something went
-          wrong with the server
-        </p>
-      </div>
-    );
+  if (error) return Navigate("/error");
+
   return (
     <div className="flex justify-center items-center min-h-screen">
       <div className="flex justify-center items-center">

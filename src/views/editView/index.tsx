@@ -51,13 +51,7 @@ function UpdateView() {
     }
   };
 
-  if (error) {
-    return (
-      <div>
-        <p>Something went wrong with updating the item</p>
-      </div>
-    );
-  }
+  if (error) return Navigate("/error");
 
   return (
     <div>

@@ -8,6 +8,7 @@ import { setSelectedId } from "@/store/sliice/platforms.slice";
 import { useState } from "react";
 import ModalPlatformSelected from "@/components/modalPlatformSelected";
 import { useNavigate } from "react-router-dom";
+import { Spinner } from "flowbite-react";
 
 function MainView() {
   const [option, setOption] = useState<string>("All");
@@ -38,7 +39,12 @@ function MainView() {
     } catch (error) {}
   };
 
-  if (isLoading) return <p>Loading data...</p>;
+  if (isLoading)
+    return (
+      <div className="flex justify-center my-32">
+        <Spinner aria-label="Extra large spinner example" size="xl" />;
+      </div>
+    );
 
   return (
     <div className="my-32">
@@ -52,7 +58,7 @@ function MainView() {
               setOption(e.target.value);
             }}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-            <option value="All" selected>
+            <option value="All" defaultValue={"All"}>
               All
             </option>
             <option value="Construction">Construction</option>
