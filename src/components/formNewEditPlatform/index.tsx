@@ -5,6 +5,7 @@ type FormProps = {
   onChangeHandler: (name: string, value: string) => void;
   onSubmitHandler: () => void;
   addNewTitle?: boolean;
+  isEditing?: boolean;
 };
 
 function FormNewEditPlatform({
@@ -12,6 +13,7 @@ function FormNewEditPlatform({
   onChangeHandler,
   onSubmitHandler,
   addNewTitle,
+  isEditing,
 }: FormProps) {
   return (
     <form className="w-full">
@@ -46,6 +48,7 @@ function FormNewEditPlatform({
           <input
             type="text"
             name="platformName"
+            readOnly={isEditing ? true : false}
             value={formValues.platformName}
             onChange={(e) => {
               onChangeHandler(e.target.name, e.target.value);
@@ -91,6 +94,7 @@ function FormNewEditPlatform({
           <select
             name="presentation"
             value={formValues.presentation}
+            disabled={isEditing ? true : false}
             onChange={(e) => {
               onChangeHandler(e.target.name, e.target.value);
             }}

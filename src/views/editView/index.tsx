@@ -68,6 +68,7 @@ function UpdateView() {
               formValues={formValues}
               onChangeHandler={onChangeHandler}
               onSubmitHandler={onSubmitHandler}
+              isEditing={true}
             />
           </div>
         </div>

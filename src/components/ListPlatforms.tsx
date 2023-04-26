@@ -18,8 +18,8 @@ function ListPlatforms({
     <div className="flex justify-center">
       <Table hoverable={true}>
         <Table.Head className="text-center">
-          <Table.HeadCell>Platform ID</Table.HeadCell>
           <Table.HeadCell>Platform Name</Table.HeadCell>
+          <Table.HeadCell>Auth Entry</Table.HeadCell>
           <Table.HeadCell>Link Content</Table.HeadCell>
           <Table.HeadCell>Presentation</Table.HeadCell>
           <Table.HeadCell>State</Table.HeadCell>
@@ -33,11 +33,13 @@ function ListPlatforms({
             data.map((value) => (
               <Table.Row key={value._id} className="bg-white">
                 <Table.Cell className="whitespace-nowrap font-medium text-gray-900">
-                  {value.platformID}
+                  {value.platformName}
                 </Table.Cell>
 
-                <Table.Cell className="whitespace-nowrap font-medium text-gray-900">
-                  {value.platformName}
+                <Table.Cell className="whitespace-nowrap font-medium text-blue-600 hover:underline hover:cursor-pointer">
+                  <a href={value.authEntryPoint} target="_blank">
+                    {value.authEntryPoint}
+                  </a>
                 </Table.Cell>
 
                 <Table.Cell className="whitespace-nowrap font-medium text-blue-600 hover:underline hover:cursor-pointer">
